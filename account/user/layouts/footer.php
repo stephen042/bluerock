@@ -44,7 +44,7 @@
 </div>
 <!-- END MAIN CONTAINER -->
 <!--Start of chatway Script-->
-<!-- <script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=nHz2c1Z8Wt7U"></script> -->
+<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=YD4Lg4vxf3ri"></script>
 <!--End of chatway Script-->
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 <!--<script src="../assets/js/libs/jquery-3.1.1.min.js"></script>-->
