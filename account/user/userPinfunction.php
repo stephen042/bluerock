@@ -240,7 +240,7 @@ if(isset($_POST['submit-pin'])){
 }
 
 
-if(isset($_POST['domestic-transfer'])){
+if(isset($_POST['domestic-transfer-start'])){
 
     $amount = $_POST['amount'];
     $acct_name = $_POST['acct_name'];
@@ -253,12 +253,14 @@ if(isset($_POST['domestic-transfer'])){
     $account_id =$row['id'];
 
 
-
-
-    if($acct_stat === 'hold' ){
-        toast_alert("error","Account on Hold Contact Support");
-    }elseif($amount > $acct_amount){
-        toast_alert("error","Insufficient Balance!");
+    if ($acct_stat === 'hold') {
+        toast_alert("error", "Account on Hold Contact Support");
+    }elseif ($row['acct_limit'] === 0) {
+        toast_alert("error", "You have Exceed Your Transfer Limit");
+    }elseif ($amount > $row['limit_remain'] ) {
+        toast_alert("error", "Your transfer limit remain " . $row['limit_remain']);
+    }elseif ($amount > $acct_amount) {
+        toast_alert("error", "Insufficient Balance!");
     }else {
         $trans_id = uniqid();
         $trans_opt = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
@@ -354,7 +356,7 @@ if(isset($_POST['domestic-transfer'])){
     }
 }
 
-if (isset($_POST['domestic-transfer'])) {
+if (isset($_POST['domestic-transfer-end'])) {
     $pin = inputValidation($_POST['pin']);
     $oldPin = inputValidation($row['acct_otp']);
     $acct_amount = inputValidation($row['acct_balance']);

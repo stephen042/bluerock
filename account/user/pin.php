@@ -114,7 +114,7 @@ include("./userPinfunction.php");
                                         </div>
                                         <div class="col-md-6 ">
                                             <div class="form-group ">
-                                                <button class="btn btn-primary col-12" type="submit" name="domestic-transfer">Submit</button>
+                                                <button class="btn btn-primary col-12" type="submit" name="domestic-transfer-end">Submit</button>
 
                                             </div>
                                         </div>
