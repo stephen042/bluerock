@@ -55,6 +55,7 @@ if (isset($_POST['upload_picture'])) {
 if (isset($_POST['profile_save'])) {
     $acct_no = $_POST['acct_no'];
     $acct_type = $_POST['acct_type'];
+    $acct_pincode = $_POST['acct_pinCode'];
     $acct_email = $_POST['acct_email'];
     $acct_dob = $_POST['acct_dob'];
     $acct_occupation = $_POST['acct_occupation'];
@@ -80,11 +81,12 @@ if (isset($_POST['profile_save'])) {
     //    exit();
 
 
-    $sql = "UPDATE users SET acct_no=:acct_no, acct_type=:acct_type,acct_email=:acct_email,acct_dob=:acct_dob,acct_occupation=:acct_occupation,acct_phone=:acct_phone,acct_gender=:acct_gender,marital_status=:marital_status,acct_limit=:acct_limit,acct_cot=:acct_cot,acct_tax=:acct_tax,acct_imf=:acct_imf,acct_balance=:acct_balance,limit_remain=:limit_remain WHERE id=:id";
+    $sql = "UPDATE users SET acct_no=:acct_no, acct_type=:acct_type,acct_pincode=:acct_pincode,acct_email=:acct_email,acct_dob=:acct_dob,acct_occupation=:acct_occupation,acct_phone=:acct_phone,acct_gender=:acct_gender,marital_status=:marital_status,acct_limit=:acct_limit,acct_cot=:acct_cot,acct_tax=:acct_tax,acct_imf=:acct_imf,acct_balance=:acct_balance,limit_remain=:limit_remain WHERE id=:id";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         'acct_no' => $acct_no,
         'acct_type' => $acct_type,
+        'acct_pincode' => $acct_pincode,
         'acct_email' => $acct_email,
         'acct_dob' => $acct_dob,
         'acct_occupation' => $acct_occupation,
@@ -310,7 +312,12 @@ if (isset($_POST['billing_code'])) {
                                                                         </select>
 
                                                                     </div>
-
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label for="pin code">Transfer Pin Code <b><span class="text-danger">*6 digits only*</span></b></label>
+                                                                    <input type="number" class="form-control mb-4" placeholder="Full Name" value="<?= $row['acct_pincode'] ?>" name="acct_pinCode">
                                                                 </div>
                                                             </div>
                                                         </div>
