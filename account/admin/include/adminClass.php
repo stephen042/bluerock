@@ -25,7 +25,7 @@ class message
         $mail->Host = "smtp.hostinger.com"; //
         $mail->SMTPAuth = true;
         $mail->Username = "support@bluerockfinance.live"; // Default cpanel email account
-        $mail->Password = 'Oyibomega007.'; // Default cpanel email password
+        $mail->Password = 'Oyibomega1@'; // Default cpanel email password
         $mail->Port = 465; // 587 or 465
         $mail->SMTPSecure = "ssl"; // tls
 
